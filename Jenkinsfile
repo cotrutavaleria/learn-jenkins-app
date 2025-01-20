@@ -2,6 +2,13 @@ pipeline {
     agent any
 
     stages {
+         stage('Update Browserslist DB') {
+            steps {
+                script {
+                    sh 'npx update-browserslist-db@latest'
+                }
+            }
+        }
         stage('Build') {
             agent{
                 docker{
